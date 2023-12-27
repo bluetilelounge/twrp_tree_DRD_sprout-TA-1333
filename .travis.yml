@@ -38,7 +38,7 @@ after_success:
   - export version=$(cat bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
   - cp $HOME/twrp/out/target/product/ta-1333/recovery.img $HOME/twrp/TWRP-$version-ta-1333-$(date +"%Y%m%d")-Unofficial.img
   - cd $HOME/twrp/
-  # - curl -s --upload-file TWRP-$version-ta-1333-$(date +"%Y%m%d")-Unofficial.img https://file.io && echo ""
+   - curl -s --upload-file TWRP-$version-ta-1333-$(date +"%Y%m%d")-Unofficial.img https://file.io && echo ""
 deploy:
   skip_cleanup: true
   provider: releases
@@ -49,7 +49,7 @@ deploy:
     tags: false
 branches:
   only:
-    - master # Set travis builder branch(es) names
+    - twrp-12.1 # Set travis builder branch(es) names
   except:
     - /^(?i:untagged)-.*$/
     - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
